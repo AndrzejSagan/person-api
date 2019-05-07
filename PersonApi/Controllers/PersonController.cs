@@ -35,14 +35,10 @@ namespace PersonApi.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Person>> GetPerson(long id)
         {
-            var person = await _service.GetById(id);
+            var result = await _service.GetById(id);
 
-            if (person == null)
-            {
-                return NotFound();
-            }
+            return result != null ? Ok(result) : (NotFound() as ActionResult); 
 
-            return person;
         }
 
         // POST api/<controller>
@@ -56,23 +52,18 @@ namespace PersonApi.Controllers
 
             var result = await _service.Add(person);
 
-            return Ok(person);
-
-           // return CreatedAtAction(nameof(GetPerson), new { id = person.id }, person);
+            return CreatedAtAction(nameof(GetPerson), new { id = person.id }, person);
         }
 
         // PUT api/<controller>/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPerson(long id, [FromBody]Person person)
         {
-            if (id != person.id)
-            {
-                return BadRequest();
-            }
 
-           var result = await _service.Update(person);
+           var result = await _service.Update(id, person);
 
-            return NoContent();
+           return result ? NoContent() : BadRequest() as IActionResult;
+
         }
 
         // DELETE api/<controller>/5
@@ -81,10 +72,8 @@ namespace PersonApi.Controllers
         {
             var result = await _service.Remove(id);
 
-            return result ? NotFound() : NoContent() as IActionResult;
-
-           
-
+            return result ? NoContent() : NotFound() as IActionResult;
+       
         }
     }
 }

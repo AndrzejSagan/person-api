@@ -9,9 +9,9 @@ namespace PersonApi.Services
     public interface IPersonService
     {
         Task<IEnumerable<Person>> GetAll();
-        Task<bool> Add(Person newPerson);
+        Task<Person> Add(Person newPerson);
         Task<Person> GetById(long id);
-        Task<bool> Update(Person person);
+        Task<bool> Update(long id, Person person);
         Task<bool> Remove(long id);
 
     }

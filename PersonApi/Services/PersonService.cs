@@ -29,12 +29,13 @@ namespace PersonApi.Services
 
         }
 
-        public async Task<bool> Add(Person newPerson)
+        public async Task<Person> Add(Person newPerson)
         {
+
             _context.Add(newPerson);
             await _context.SaveChangesAsync();
 
-            return true;
+            return newPerson;
            
         }
 
@@ -67,8 +68,13 @@ namespace PersonApi.Services
             return true;
         }
 
-        public async Task<bool> Update(Person person)
+        public async Task<bool> Update(long id, Person person)
         {
+            if (id != person.id || !_context.People.Any(p => p.id == id))
+            {
+                return false;
+            }
+
             _context.Entry(person).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
