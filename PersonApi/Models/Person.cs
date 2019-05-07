@@ -1,11 +1,12 @@
-﻿
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace PersonApi.Models
 {
     public class Person
     {
+        //Using Data Annotations and custom Regex for validation
+
         public long id { get; set; }
 
         [Required, RegularExpression(@"^[A-Z]\D*$"), StringLength(20, MinimumLength = 2)]
@@ -19,6 +20,5 @@ namespace PersonApi.Models
 
         [RegularExpression(@"^[0-9]{9}$")]
         public long phone { get; set; }
-
     }
 }

@@ -1,11 +1,9 @@
-﻿
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-
 using PersonApi.Models;
 using PersonApi.Services;
 
@@ -20,7 +18,7 @@ namespace PersonApi
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        // Using this method to add register services with built it container for DI in ASP.NET Core
         public void ConfigureServices(IServiceCollection services)
         {
 
@@ -32,7 +30,6 @@ namespace PersonApi
            
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())

@@ -10,6 +10,5 @@ namespace PersonApi.Models
         }
 
         public DbSet<Person> People { get; set; }
-
     }
 }

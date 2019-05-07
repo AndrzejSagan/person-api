@@ -3,11 +3,8 @@ using PersonApi.Controllers;
 using PersonApi.Models;
 using PersonApi.Services;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
-
-
 
 namespace PersonApiTest
 {
@@ -48,7 +45,6 @@ namespace PersonApiTest
         [Fact]
         public async Task GetById_ExistingIdPassed_ReturnsOkResult()
         {
-
             // Act
             var okResult = await _controller.GetPerson(1);
 
@@ -60,7 +56,6 @@ namespace PersonApiTest
         [Fact] 
         public async Task GetById_ExistingIdPassed_ReturnsRightItem()
         {
-
             // Act
             var okResult = await _controller.GetPerson(1);
             var okObjectResult = okResult.Result as OkObjectResult;
@@ -93,7 +88,6 @@ namespace PersonApiTest
                 email = "noname@gmail.com"
 
             };
-
             _controller.ModelState.AddModelError("name", "Required");
 
             // Act
@@ -152,7 +146,6 @@ namespace PersonApiTest
         [Fact]
         public async Task Remove_NotExistingIdPassed_ReturnsNotFoundResponse()
         {
-
             // Act
             var notFoundResponse = await _controller.DeletePerson(10);
 
@@ -163,7 +156,6 @@ namespace PersonApiTest
         [Fact]
         public async Task Remove_ExistingIdPassed_ReturnsNoContentResult()
         {
-
             // Act
             var noContentResponse = await _controller.DeletePerson(1);
 
@@ -173,10 +165,8 @@ namespace PersonApiTest
         [Fact]
         public async Task Remove_ExistingIdPassed_RemovesOneItem()
         {
-
             // Act
             var okResponse = await _controller.DeletePerson(2);
-
 
             // Assert
             Assert.Single(_service.GetAll().Result);
@@ -186,7 +176,6 @@ namespace PersonApiTest
         [Fact]
         public async Task Update_ValidObjectPassed_ReturnsNoContentResult()
         {
-
             // Arrange
             var validPerson = new Person()
             {
@@ -198,21 +187,17 @@ namespace PersonApiTest
 
             };
 
-
             // Act
             var noContentResponse = await _controller.PutPerson(1, validPerson);
 
-
             // Assert
-            Assert.IsType<NoContentResult>(noContentResponse);
-
+            Assert.IsType<NoContentResult>(noContentResponse);      
         }
 
 
         [Fact]
         public async Task Update_InvalidObjectPassed_ReturnsBadRequest()
         {
-
             // Arrange
             var invalidPerson = new Person()
             {
@@ -224,20 +209,16 @@ namespace PersonApiTest
 
             };
 
-
             // Act
             var badRequestResponse = await _controller.PutPerson(1, invalidPerson);
 
-
             // Assert
             Assert.IsType<BadRequestResult>(badRequestResponse);
-
         }
 
         [Fact]
         public async Task Update_NotExistingIdPassed_ReturnsBadRequest()
         {
-
             // Arrange
             var invalidPerson = new Person()
             {
@@ -249,24 +230,12 @@ namespace PersonApiTest
 
             };
 
-
             // Act
             var badRequestResponse = await _controller.PutPerson(10, invalidPerson);
 
-
             // Assert
             Assert.IsType<BadRequestResult>(badRequestResponse);
-
         }
-
-
-
-
-
-
-
-
-
 
     }
 }

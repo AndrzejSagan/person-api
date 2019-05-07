@@ -14,6 +14,7 @@ namespace PersonApi.Services
         {
             _context = context;
 
+            // Always create non empty API 
             if (_context.People.Count() == 0)
             {
                 _context.People.Add(new Person
@@ -26,17 +27,14 @@ namespace PersonApi.Services
 
                 _context.SaveChanges();
             }
-
         }
 
         public async Task<Person> Add(Person newPerson)
         {
-
             _context.Add(newPerson);
             await _context.SaveChangesAsync();
 
-            return newPerson;
-           
+            return newPerson;        
         }
 
         public async Task<IEnumerable<Person>> GetAll()

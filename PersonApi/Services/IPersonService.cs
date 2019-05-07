@@ -13,6 +13,5 @@ namespace PersonApi.Services
         Task<Person> GetById(long id);
         Task<bool> Update(long id, Person person);
         Task<bool> Remove(long id);
-
     }
 }

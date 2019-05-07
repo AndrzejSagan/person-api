@@ -1,6 +1,4 @@
-﻿
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PersonApi.Models;
@@ -19,7 +17,6 @@ namespace PersonApi.Controllers
             _service = service;
 
         }
-
 
         // GET: api/<controller>
         [HttpGet]
@@ -63,7 +60,6 @@ namespace PersonApi.Controllers
            var result = await _service.Update(id, person);
 
            return result ? NoContent() : BadRequest() as IActionResult;
-
         }
 
         // DELETE api/<controller>/5
@@ -72,8 +68,7 @@ namespace PersonApi.Controllers
         {
             var result = await _service.Remove(id);
 
-            return result ? NoContent() : NotFound() as IActionResult;
-       
+            return result ? NoContent() : NotFound() as IActionResult;       
         }
     }
 }

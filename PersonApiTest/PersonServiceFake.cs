@@ -18,11 +18,8 @@ namespace PersonApiTest
 
                 new Person { id = 1, name = "Adam", birthdate = new DateTime(1998, 3, 14), email = "adam@gmail.com", phone = 123123123},
                 new Person{ id = 2, name = "Ewa", birthdate = new DateTime(1995, 3, 10), email = "ewa@gmail.com", phone = 987654321}
-        };
-
+            };
         }
-
-
 
         public Task<Person> Add(Person newPerson)
         {
@@ -32,7 +29,6 @@ namespace PersonApiTest
 
         public Task<IEnumerable<Person>> GetAll()
         {
-
             return Task.FromResult<IEnumerable<Person>>(_peopleList);
         }
 
@@ -53,7 +49,6 @@ namespace PersonApiTest
             _peopleList.Remove(existing);
 
             return Task.FromResult(true);
-
         }
 
         public Task<bool> Update(long id, Person person)
@@ -73,7 +68,6 @@ namespace PersonApiTest
             }
 
             return Task.FromResult(false);
-
         }
     }
 }
