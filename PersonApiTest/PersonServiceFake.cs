@@ -1,0 +1,57 @@
+﻿using PersonApi.Models;
+using PersonApi.Services;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace PersonApiTest
+{
+    class PersonServiceFake : IPersonService
+    {
+
+        private readonly List<Person> _peopleList;
+
+        public PersonServiceFake()
+        {
+            _peopleList = new List<Person>(){
+
+                new Person { name = "Adam", birthdate = new DateTime(1998, 3, 14), email = "adam@gmail.com", phone = 123123123},
+                new Person{ name = "Ewa", birthdate = new DateTime(1995, 3, 10), email = "ewa@gmail.com", phone = 987654321}
+        };
+
+        }
+
+
+
+        public Task<bool> Add(Person newPerson)
+        {
+            _peopleList.Add(newPerson);
+            return Task.FromResult(true);
+        }
+
+        public Task<IEnumerable<Person>> GetAll()
+        {
+
+            return Task.FromResult<IEnumerable<Person>>(_peopleList);
+        }
+
+        public Task<Person> GetById(long id)
+        {
+            return Task.FromResult(_peopleList.Find(p => p.id == id));
+        }
+
+        public Task<bool> Remove(long id)
+        {
+            var existing = _peopleList.Find(p => p.id == id);
+            _peopleList.Remove(existing);
+
+            return Task.FromResult(true);
+
+        }
+
+        public Task<bool> Update(Person person)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}

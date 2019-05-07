@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.489
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonApi", "PersonApi\PersonApi.csproj", "{ADCD2EC3-FC43-420E-AA49-D48D62318757}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonApiTest", "PersonApiTest\PersonApiTest.csproj", "{19118040-B39C-49ED-9761-09CA129DA139}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ADCD2EC3-FC43-420E-AA49-D48D62318757}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADCD2EC3-FC43-420E-AA49-D48D62318757}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADCD2EC3-FC43-420E-AA49-D48D62318757}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADCD2EC3-FC43-420E-AA49-D48D62318757}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19118040-B39C-49ED-9761-09CA129DA139}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19118040-B39C-49ED-9761-09CA129DA139}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19118040-B39C-49ED-9761-09CA129DA139}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19118040-B39C-49ED-9761-09CA129DA139}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4A77BC8D-127C-4758-B451-F11CFC81ED24}
+	EndGlobalSection
+EndGlobal
